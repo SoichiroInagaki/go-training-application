@@ -17,3 +17,13 @@ func GetAll(db *gorm.DB) ([]Task, error) {
 	result := db.Find(&tasks)
 	return tasks, result.Error
 }
+
+func GetById(db *gorm.DB, id uint) (*Task, error) {
+	var task Task
+	result := db.First(&task, id)
+	return &task, result.Error
+}
+
+func (t *Task) Update(db *gorm.DB) error {
+	return db.Save(t).Error
+}

@@ -16,5 +16,6 @@ func main() {
 	r := gin.Default()
 	r.POST("/tasks", handlers.CreateTask)
 	r.GET("/tasks", handlers.GetTasks)
+	r.PUT("/tasks/:id", handlers.UpdateTask)
 	r.Run()
 }
